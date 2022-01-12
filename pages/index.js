@@ -3,12 +3,17 @@ import Image from "next/image";
 import styles from "../styles/Home.module.scss";
 import { ApolloClient, InMemoryCache, gql, useQuery } from "@apollo/client";
 import MeetingItem from "../components/MeetingItem";
-import { Carousel, Pagination } from "react-bootstrap";
+import { useState } from "react";
+import { Carousel, Pagination, Modal, Button } from "react-bootstrap";
 
 export default function Home({ data }) {
   console.log(data);
 
   const items = data.data.boards[0].items;
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
   const sortedItems = items.sort((a, b) => {
     let dateA = new Date(a.column_values[1].text.split(" ")[0]);
@@ -25,33 +30,24 @@ export default function Home({ data }) {
       </Head>
       <div className={styles.sectionOne}>
         <h1 className={styles.header}>Book An Appointment</h1>
-        
       </div>
       <div className={styles.sectionTwo}>
         <h2 className={styles.availableDates}>Available Dates</h2>
         <div className={styles.scrollView}>
-        {sortedItems.map((item) => {
-          if (item.column_values[0].text === "Available") {
-            return (
-              <div key={item.id} className={styles.container}>
-                <MeetingItem
-                  name={item.name}
-                  date={item.column_values[1].text}
-                  status={item.column_values[0].text}
-                />
-              </div>
-            );
-          }
-          // else if (item.column_values[0].text === 'Pending') {
-          //   return (
-          //     <div key={item.id} style={{padding: '10px', display: 'flex', gap: '20px', color: 'red'}}>
-          //     <p>{item.name}</p>
-          //     <p>{item.column_values[1].text}</p>
-          //     <p>{item.column_values[0].text}</p>
-          //   </div>
-          //   )
-          // }
-        })}
+          {sortedItems.map((item) => {
+            if (item.column_values[0].text === "Available")
+            {
+              return (
+                <div key={item.id} className={styles.container}>
+                  <MeetingItem
+                    name={item.name}
+                    date={item.column_values[1].text}
+                    status={item.column_values[0].text}
+                  />
+                </div>
+              );
+            }
+          })}
         </div>
       </div>
     </div>

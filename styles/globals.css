@@ -1,14 +1,26 @@
 html,
 body {
-  padding: 2rem;
+  padding: 2rem !important;
+  background-color: transparent !important;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif !important;
 }
 
 html {
   background: linear-gradient(#e03131,#c92a2a) !important;
   min-height: 100vh;
+}
+
+
+.scrollView::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.scrollView {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
 }
 
 a {
