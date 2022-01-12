@@ -2,6 +2,7 @@ import styles from "../styles/MeetingItem.module.scss";
 import convertTime from "convert-time";
 import { Modal, Button } from "react-bootstrap";
 import { useState, useEffect } from "react";
+import {useRouter} from 'next/router'
 
 const MeetingItem = ({ name, date, status, id }) => {
   const dateArr = date.split(" ");
@@ -14,6 +15,8 @@ const MeetingItem = ({ name, date, status, id }) => {
   const [last, setLast] = useState("");
   const [email, setEmail] = useState("");
 
+  const router = useRouter();
+
   const handleClose = () => setShow(false);
   const handleBooking = async () => {
     setShow(false)
@@ -22,21 +25,13 @@ const MeetingItem = ({ name, date, status, id }) => {
     console.log(email)
     console.log(id)
 
-    const graphql = JSON.stringify({
-      query: `mutation {\r\n  change_multiple_column_values(board_id:2135781119, item_id:2136719918, column_values: \"{\\\"text\\\": \\\"${first}\\\", \\\"text6\\\": \\\"${last}\\\", \\\"text3\\\": \\\"${email}\\\", \\\"status\\\": {\\\"label\\\": \\\"Pending\\\"}}\") {\r\n    id\r\n  }\r\n}`,
-      variables: {}
-    })
+    router.push({pathname: "/booked", query: { 
+      first,
+      last,
+      email,
+      id
+     }});
 
-    const res = await fetch(`https://api.monday.com/v2`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: process.env.API_KEY,
-    },
-    body: graphql
-  });
-  const result = await res.json();
-  console.log(result)
   }
   const handleShow = () => setShow(true);
 
