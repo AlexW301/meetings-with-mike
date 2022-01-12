@@ -55,3 +55,30 @@
     bottom: 10px;
     right: 10px;
 }
+
+
+// Modal
+
+
+.form {
+    display: flex;
+    flex-direction: column;
+
+    label {
+        margin-left: 5px;
+        margin-bottom: 5px;
+    }
+
+    input {
+        margin-bottom: 15px;
+    }
+  }
+
+  .textInput {
+    padding: 5px 10px;
+    font-size: 1.1rem;
+    border-radius: 10px;
+    outline: none;
+    border: 1px solid black;
+    box-shadow: 0 8px 16px 0 rgb(0 0 0 / 1%), 0 0px 10px 0 rgb(0 0 0 / 5%);
+}
