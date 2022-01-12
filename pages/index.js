@@ -43,6 +43,7 @@ export default function Home({ data }) {
                     name={item.name}
                     date={item.column_values[1].text}
                     status={item.column_values[0].text}
+                    id={item.id}
                   />
                 </div>
               );
