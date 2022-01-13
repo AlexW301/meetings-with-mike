@@ -135,6 +135,7 @@
 
 .modalFooter {
   background: #e03131;
+  align-items: center;
 }
 
 .form {
@@ -149,7 +150,7 @@
   }
 
   input {
-    margin-bottom: 15px;
+    margin-bottom: 17px;
   }
 }
 
@@ -175,6 +176,7 @@
   font-family: Rosario;
   font-style: italic;
   font-weight: 900;
+  margin: 4px !important;
 }
 
 .bookBtn:hover {

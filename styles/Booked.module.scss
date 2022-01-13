@@ -1,56 +1,77 @@
 .container {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    text-align: center;
-    max-width: 550px;
-    margin: 0 auto;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  max-width: 550px;
+  margin: 0 auto;
+  padding-top: 4rem;
 
-    h1 {
-        color: #f5fff5;
-        font-size: 2.5rem;
-        letter-spacing: 1.7px;
-        margin: 0 0 45px;
-        font-weight: 700;
-      }
+  h1 {
+    color: #f5fff5;
+    font-size: 3.5rem;
+    letter-spacing: 1.7px;
+    margin: 0 0 45px;
+    font-weight: 700;
+    // Trying
+    font-family: Rosario;
+    font-style: italic;
+    font-weight: 900;
+  }
 
-    h3 {
-            color: #f5fff5;
-            font-size: 2rem;
-            letter-spacing: 1.7px;
-            margin: 0 0 20px;
-            font-weight: 700;
+  h3 {
+    color: #f5fff5;
+    font-size: 2rem;
+    letter-spacing: 1.7px;
+    margin: 0 0 20px;
+    // Trying
+    font-family: Rosario;
+    font-style: italic;
+    font-weight: 600;
+  }
+
+  p {
+    color: #f5fff5;
+    font-size: 1.2rem;
+    letter-spacing: 1.4px;
+    margin: 0 0 20px;
+    font-weight: 500;
+    line-height: 1.7;
+    margin-top: 30px;
+    margin-bottom: 80px;
+
+    span {
+      font-weight: 700;
+      font-size: 1.3rem;
     }
+  }
 
-    h4 {
-            color: #f5fff5;
-            font-size: 1.2rem;
-            letter-spacing: 1.7px;
-            margin: 0 0 20px;
-            font-weight: 700;
-            line-height: 2;
-    }
+  a:link,
+  a:visited {
+    font-size: 1.5rem;
+    text-decoration: none;
 
-    a:link,
-    a:visited {
-        font-size: 1.5rem;
-        color: #f5fff5;
-        border: 1px solid #f5fff5;
-        font-weight: 500;
-        text-decoration: none;
-        padding: 5px 10px;
-        border-radius: 10px;
-    }
+    padding: 0.5rem 2.2rem;
+    border: none;
+    border-radius: 20px;
+    font-weight: 600;
+    background: #f5fff5;
+    color: #e03131;
+    transition: 0.4s all ease-out;
+    box-shadow: 0 8px 16px 0 rgb(0 0 0 / 1%), 0 0px 10px 0 rgba(0, 0, 0, 0.212);
+    // Trying
+    font-family: Rosario;
+    font-style: italic;
+    font-weight: 900;
 
-    a:hover,
-    a:active {
-        background-color: #f5fff5;
-        color: #e03131;
-    }
+  }
 
-
-
+  a:hover,
+  a:active {
+    color: #f5fff5;
+    background-color: #be2424;
+    box-shadow: 0 8px 16px 0 rgb(0 0 0 / 1%), 0 0px 10px 0 rgba(0, 0, 0, 0.377);
+  }
 }
-

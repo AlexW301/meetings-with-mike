@@ -14,6 +14,7 @@ const MeetingItem = ({ name, date, status, id }) => {
   const [first, setFirst] = useState("");
   const [last, setLast] = useState("");
   const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
 
   const router = useRouter();
 
@@ -37,17 +38,21 @@ const MeetingItem = ({ name, date, status, id }) => {
   };
 
   const handleClose = () => setShow(false);
-  const handleBooking = async () => {
-    setShow(false);
-    router.push({
-      pathname: "/booked",
-      query: {
-        first,
-        last,
-        email,
-        id,
-      },
-    });
+  const handleBooking = async (e) => {
+    e.preventDefault()
+    if (first !== '' && last !== '' && email !== '' && phone.length >= 10) {
+      setShow(false);
+      router.push({
+        pathname: "/booked",
+        query: {
+          first,
+          last,
+          email,
+          phone,
+          id,
+        },
+      });
+    }
   };
   const handleShow = () => setShow(true);
 
@@ -86,7 +91,12 @@ const MeetingItem = ({ name, date, status, id }) => {
           {status}
         </p>
       </div>
-      <Modal fullscreen={'md-down'} show={show} onHide={handleClose} className={styles.modal}>
+      <Modal
+        fullscreen={"md-down"}
+        show={show}
+        onHide={handleClose}
+        className={styles.modal}
+      >
         <Modal.Header closeButton className={styles.modalHeader}>
           <Modal.Title className={styles.modalTitle}>
             {monthName} {day} at {convertTime(`${time}`)}
@@ -99,7 +109,7 @@ const MeetingItem = ({ name, date, status, id }) => {
             {startsWithVowel(name) ? "an" : "a"} {name} for {monthName} {day} at{" "}
             {convertTime(`${time}`)}
           </p>
-          <form className={styles.form}>
+          <form className={styles.form}  onSubmit={handleBooking}>
             <label htmlFor="firstName">First Name</label>
             <input
               className={styles.textInput}
@@ -120,20 +130,29 @@ const MeetingItem = ({ name, date, status, id }) => {
             <input
               className={styles.textInput}
               id="email"
-              type={"text"}
+              type={"email"}
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
+            <label htmlFor="email">Phone</label>
+            <input
+              className={styles.textInput}
+              id="phone"
+              type={"tel"}
+              value={phone}
+              onChange={(e) => setPhone(e.target.value)}
+            />
+            <Modal.Footer className={styles.modalFooter}>
+              <button
+                className={styles.closeBtn}
+                onClick={handleClose}
+              >
+                Cancel
+              </button>
+              <input type='submit' className={styles.bookBtn} value='Book'/>
+            </Modal.Footer>
           </form>
         </Modal.Body>
-        <Modal.Footer className={styles.modalFooter}>
-          <button className={styles.closeBtn} variant="dark" onClick={handleClose}>
-            Cancel
-          </button>
-          <button className={styles.bookBtn} variant="light" onClick={handleBooking}>
-            Book
-          </button>
-        </Modal.Footer>
       </Modal>
     </>
   );
