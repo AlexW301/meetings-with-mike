@@ -9,6 +9,10 @@
   margin: 0 auto;
   padding-top: 4rem;
 
+  @media screen and (max-width: 880px) {
+    padding-top: 1rem;
+  }
+
   h1 {
     color: #f5fff5;
     font-size: 3.5rem;
@@ -46,6 +50,11 @@
       font-weight: 700;
       font-size: 1.3rem;
     }
+
+    @media screen and (max-width: 880px) {
+        padding: 0 1rem;
+        margin-bottom: 40px;
+    }
   }
 
   a:link,
@@ -65,7 +74,7 @@
     font-family: Rosario;
     font-style: italic;
     font-weight: 900;
-
+    margin: 0 0 2.5rem 0;
   }
 
   a:hover,
