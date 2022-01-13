@@ -38,10 +38,8 @@
   grid-template-columns: 1fr 1fr;
   row-gap: 0px;
   column-gap: 30px;
-}
 
-@media screen and (max-width: 1350px) {
-  .scrollView {
+  @media screen and (max-width: 1350px) {
     grid-template-columns: 1fr;
   }
 }

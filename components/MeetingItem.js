@@ -2,7 +2,7 @@ import styles from "../styles/MeetingItem.module.scss";
 import convertTime from "convert-time";
 import { Modal, Button } from "react-bootstrap";
 import { useState, useEffect } from "react";
-import {useRouter} from 'next/router'
+import { useRouter } from "next/router";
 
 const MeetingItem = ({ name, date, status, id }) => {
   const dateArr = date.split(" ");
@@ -17,22 +17,45 @@ const MeetingItem = ({ name, date, status, id }) => {
 
   const router = useRouter();
 
+  const startsWithVowel = (vowel) => {
+    if (
+      vowel[0] === "a" ||
+      vowel[0] === "e" ||
+      vowel[0] === "i" ||
+      vowel[0] === "o" ||
+      vowel[0] === "u" ||
+      vowel[0] === "A" ||
+      vowel[0] === "E" ||
+      vowel[0] === "I" ||
+      vowel[0] === "O" ||
+      vowel[0] === "U"
+    ) {
+      return true;
+    } else {
+      return false;
+    }
+  };
+
+  console.log(startsWithVowel(name));
+
   const handleClose = () => setShow(false);
   const handleBooking = async () => {
-    setShow(false)
-    console.log(first)
-    console.log(last)
-    console.log(email)
-    console.log(id)
+    setShow(false);
+    console.log(first);
+    console.log(last);
+    console.log(email);
+    console.log(id);
 
-    router.push({pathname: "/booked", query: { 
-      first,
-      last,
-      email,
-      id
-     }});
-
-  }
+    router.push({
+      pathname: "/booked",
+      query: {
+        first,
+        last,
+        email,
+        id,
+      },
+    });
+  };
   const handleShow = () => setShow(true);
 
   const months = [
@@ -55,7 +78,6 @@ const MeetingItem = ({ name, date, status, id }) => {
   const day = fullDate.split("-")[2];
   //   console.log(months[monthNumber - 1])
 
-  
   return (
     <>
       <div className={styles.container} onClick={handleShow}>
@@ -71,31 +93,53 @@ const MeetingItem = ({ name, date, status, id }) => {
           {status}
         </p>
       </div>
-      <Modal show={show} onHide={handleClose}>
-        <Modal.Header closeButton>
-          <Modal.Title>{name}</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <h2>
+      <Modal fullscreen={'md-down'} show={show} onHide={handleClose} className={styles.modal}>
+        <Modal.Header closeButton className={styles.modalHeader}>
+          <Modal.Title className={styles.modalTitle}>
             {monthName} {day} at {convertTime(`${time}`)}
-          </h2>
-          <p>Fill out your information below to book an appointment for {monthName} {day} at {convertTime(`${time}`)}</p>
+          </Modal.Title>
+        </Modal.Header>
+        <Modal.Body className={styles.modalBody}>
+          <h2>{name}</h2>
+          <p>
+            Fill out your information below to request{" "}
+            {startsWithVowel(name) ? "an" : "a"} {name} for {monthName} {day} at{" "}
+            {convertTime(`${time}`)}
+          </p>
           <form className={styles.form}>
             <label htmlFor="firstName">First Name</label>
-            <input className={styles.textInput} id="firstName" type={"text"} value={first} onChange={(e) => setFirst(e.target.value)} />
+            <input
+              className={styles.textInput}
+              id="firstName"
+              type={"text"}
+              value={first}
+              onChange={(e) => setFirst(e.target.value)}
+            />
             <label htmlFor="lastName">Last Name</label>
-            <input className={styles.textInput} id="lastName" type={"text"} value={last} onChange={(e) => setLast(e.target.value)} />
+            <input
+              className={styles.textInput}
+              id="lastName"
+              type={"text"}
+              value={last}
+              onChange={(e) => setLast(e.target.value)}
+            />
             <label htmlFor="email">Email</label>
-            <input className={styles.textInput} id="email" type={"text"} value={email} onChange={(e) => setEmail(e.target.value)} />
+            <input
+              className={styles.textInput}
+              id="email"
+              type={"text"}
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
           </form>
         </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Close
-          </Button>
-          <Button variant="danger" onClick={handleBooking}>
+        <Modal.Footer className={styles.modalFooter}>
+          <button className={styles.closeBtn} variant="dark" onClick={handleClose}>
+            Cancel
+          </button>
+          <button className={styles.bookBtn} variant="light" onClick={handleBooking}>
             Book
-          </Button>
+          </button>
         </Modal.Footer>
       </Modal>
     </>
