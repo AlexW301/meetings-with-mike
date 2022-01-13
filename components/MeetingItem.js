@@ -9,14 +9,14 @@ const MeetingItem = ({ name, date, status, id }) => {
   const fullDate = dateArr[0];
   const time = dateArr[1];
 
-  const [toastText, setToastText] = useState('')
+  const [toastText, setToastText] = useState("");
 
   const [show, setShow] = useState(false);
   const [showA, setShowA] = useState(false);
 
   const closeShowA = () => {
-    setShowA(false)
-  }
+    setShowA(false);
+  };
 
   const [first, setFirst] = useState("");
   const [last, setLast] = useState("");
@@ -44,10 +44,9 @@ const MeetingItem = ({ name, date, status, id }) => {
     }
   };
 
-  const handleClose = () => setShow(false);
   const handleBooking = async (e) => {
-    e.preventDefault()
-    if (first !== '' && last !== '' && email !== '' && phone.length >= 10) {
+    e.preventDefault();
+    if (first !== "" && last !== "" && email !== "" && phone.length >= 10) {
       setShow(false);
       router.push({
         pathname: "/booked",
@@ -60,20 +59,25 @@ const MeetingItem = ({ name, date, status, id }) => {
         },
       });
     } else if (phone.length < 10) {
-      setToastText('Please Enter a valid phone number')
-      setShowA(true)
+      setToastText("Please Enter a valid phone number");
+      setShowA(true);
       setTimeout(() => {
-        setShowA(false)
-      }, 5000)
+        setShowA(false);
+      }, 5000);
     } else {
-      setToastText('Please fill out all the required fields')
-      setShowA(true)
+      setToastText("Please fill out all the required fields");
+      setShowA(true);
       setTimeout(() => {
-        setShowA(false)
-      }, 5000)
+        setShowA(false);
+      }, 5000);
     }
   };
   const handleShow = () => setShow(true);
+
+  const handleClose = () => {
+    setShowA(false);
+    setShow(false);
+  };
 
   const months = [
     "January",
@@ -128,7 +132,7 @@ const MeetingItem = ({ name, date, status, id }) => {
             {startsWithVowel(name) ? "an" : "a"} {name} for {monthName} {day} at{" "}
             {convertTime(`${time}`)}
           </p>
-          <form className={styles.form}  onSubmit={handleBooking}>
+          <form className={styles.form} onSubmit={handleBooking}>
             <label htmlFor="firstName">First Name</label>
             <input
               className={styles.textInput}
@@ -163,17 +167,17 @@ const MeetingItem = ({ name, date, status, id }) => {
             />
             <Modal.Footer className={styles.modalFooter}>
               <button
+                type="button"
                 className={styles.closeBtn}
                 onClick={handleClose}
               >
                 Cancel
               </button>
-              <input type='submit' className={styles.bookBtn} value='Book'/>
+              <input type="submit" className={styles.bookBtn} value="Book" />
             </Modal.Footer>
           </form>
         </Modal.Body>
-      </Modal>
-      <Toast show={showA} onClose={closeShowA} className={styles.toast}>
+        <Toast show={showA} onClose={closeShowA} className={styles.toast}>
           <Toast.Header>
             {/* <img
               src="holder.js/20x20?text=%20"
@@ -185,6 +189,7 @@ const MeetingItem = ({ name, date, status, id }) => {
           </Toast.Header>
           <Toast.Body className={styles.toastBody}>{toastText}</Toast.Body>
         </Toast>
+      </Modal>
     </>
   );
 };
