@@ -8,7 +8,7 @@ const Booked = ({first, last, email}) => {
             <h1>Thank You <br></br> {first} {last}</h1>
             <h3>We have recieved your request!</h3>
             <img src='/images/invite.svg' alt='rocket' height={200}/>
-            <p>We will respond shortly to confirm your appointment. Please make sure to check your email at <span>{email}</span></p>
+            <p>We will respond to you shortly with an email to confirm your appointment. Please make sure to check your email at <span>{email}</span></p>
             <Link href='https://www.pmlhomeloans.com' passHref>
             <a>Visit Our Website</a>
             </Link>
