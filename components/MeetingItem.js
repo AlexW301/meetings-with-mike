@@ -36,16 +36,9 @@ const MeetingItem = ({ name, date, status, id }) => {
     }
   };
 
-  console.log(startsWithVowel(name));
-
   const handleClose = () => setShow(false);
   const handleBooking = async () => {
     setShow(false);
-    console.log(first);
-    console.log(last);
-    console.log(email);
-    console.log(id);
-
     router.push({
       pathname: "/booked",
       query: {
