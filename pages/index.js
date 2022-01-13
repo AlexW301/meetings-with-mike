@@ -33,7 +33,7 @@ export default function Home({ data }) {
         <div className={styles.bodyContent}>
         <h1 className={styles.header}>Book An Appointment</h1>
           <p>
-            Thank you for your interest. To book a meeting with Mike simply choose from the
+            Thank you for your interest! To book a meeting with Mike simply choose from the
             avaialable time slots below.
           </p>
         </div>

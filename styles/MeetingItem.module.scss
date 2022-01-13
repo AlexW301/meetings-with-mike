@@ -202,3 +202,19 @@
   background: #f5fff5;
   color: #e03131;
 }
+
+.toast {
+    z-index: 10000;
+    position: absolute;
+    top: 20px;
+    right: 50%;
+    transform: translateX(50%);
+
+    @media screen and (max-width: 880px) {
+        
+    }
+
+    .toastBody {
+        background: #f5fff5;
+    }
+}

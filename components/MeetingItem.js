@@ -1,6 +1,6 @@
 import styles from "../styles/MeetingItem.module.scss";
 import convertTime from "convert-time";
-import { Modal, Button } from "react-bootstrap";
+import { Modal, Toast } from "react-bootstrap";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 
@@ -9,7 +9,14 @@ const MeetingItem = ({ name, date, status, id }) => {
   const fullDate = dateArr[0];
   const time = dateArr[1];
 
+  const [toastText, setToastText] = useState('')
+
   const [show, setShow] = useState(false);
+  const [showA, setShowA] = useState(false);
+
+  const closeShowA = () => {
+    setShowA(false)
+  }
 
   const [first, setFirst] = useState("");
   const [last, setLast] = useState("");
@@ -52,6 +59,18 @@ const MeetingItem = ({ name, date, status, id }) => {
           id,
         },
       });
+    } else if (phone.length < 10) {
+      setToastText('Please Enter a valid phone number')
+      setShowA(true)
+      setTimeout(() => {
+        setShowA(false)
+      }, 5000)
+    } else {
+      setToastText('Please fill out all the required fields')
+      setShowA(true)
+      setTimeout(() => {
+        setShowA(false)
+      }, 5000)
     }
   };
   const handleShow = () => setShow(true);
@@ -154,6 +173,18 @@ const MeetingItem = ({ name, date, status, id }) => {
           </form>
         </Modal.Body>
       </Modal>
+      <Toast show={showA} onClose={closeShowA} className={styles.toast}>
+          <Toast.Header>
+            {/* <img
+              src="holder.js/20x20?text=%20"
+              className="rounded me-2"
+              alt=""
+            /> */}
+            <strong className="me-auto">Woops!</strong>
+            <small>now</small>
+          </Toast.Header>
+          <Toast.Body className={styles.toastBody}>{toastText}</Toast.Body>
+        </Toast>
     </>
   );
 };
