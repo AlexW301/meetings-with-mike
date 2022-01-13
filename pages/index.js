@@ -30,12 +30,11 @@ export default function Home({ data }) {
       </Head>
       <div className={styles.sectionOne}>
         <img src="/images/logo.png" alt="logo" height={118} width={305} />
-        <h1 className={styles.header}>Book An Appointment</h1>
         <div className={styles.bodyContent}>
-          <h2>Thank You for your interest!</h2>
+        <h1 className={styles.header}>Book An Appointment</h1>
           <p>
-            If you would like to book a meeting with Mike simply choose from the
-            avaialable dates and times to request a meeting.
+            Thank you for your interest. To book a meeting with Mike simply choose from the
+            avaialable time slots below.
           </p>
         </div>
       </div>
