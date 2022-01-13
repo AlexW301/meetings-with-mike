@@ -1,190 +1,205 @@
 .container {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-    border: 2px solid #f5fff5;
-    width: 100%;
-    padding: 20px;
-    align-items: left;
-    justify-content: center;
-    border-radius: 20px;
-    cursor: pointer;
-    position: relative;
-    transition: all .2s ease-out;
-    color: white;
-    background-color: transparent;
-    height: 120px;
-    box-shadow: 0 8px 16px 0 rgb(0 0 0 / 1%), 0 0px 10px 0 rgba(0, 0, 0, 0.199);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  border: 2px solid #f5fff5;
+  width: 100%;
+  padding: 20px;
+  align-items: left;
+  justify-content: center;
+  border-radius: 20px;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.2s ease-out;
+  color: white;
+  background-color: transparent;
+  height: 120px;
+  box-shadow: 0 8px 16px 0 rgb(0 0 0 / 1%), 0 0px 10px 0 rgba(0, 0, 0, 0.199);
 
-    @media screen and (max-width: 880px) {
-        height: 100px;
-    }
+  @media screen and (max-width: 880px) {
+    height: 100px;
+  }
 }
 
 .container:hover {
-    background: #f5fff5;
-    color: #e03131;
+  background: #f5fff5;
+  color: #e03131;
 
-    .statusAvailable {
-        background-color: #e03131;
-        color: #f5fff5;
+  .statusAvailable {
+    background-color: #e03131;
+    color: #f5fff5;
+  }
+
+  .date {
+    font-size: 1.2rem;
+  }
+
+  .title {
+    font-size: 1.9rem;
+  }
+
+  @media screen and (max-width: 880px) {
+    .title {
+      font-size: 1.6rem;
     }
 
     .date {
-        font-size: 1.2rem;
+      font-size: 1rem;
     }
-
-    .title {
-        font-size: 1.9rem;
-    }
-
-    @media screen and (max-width: 880px) {
-        .title {
-            font-size: 1.6rem;
-        }
-
-        .date {
-            font-size: 1rem;
-        }
-    }
+  }
 }
 
 .date {
-    font-size: 1.8rem;
-    margin: 0;
-    font-weight: 700;
-    transition: all .4s ease-out;
+  font-size: 1.8rem;
+  margin: 0;
+  font-weight: 700;
+  transition: all 0.4s ease-out;
 }
 
 .title {
-    margin: 10px 0 0 0;
-    font-weight: 700;
-    font-size: 1.4rem;
-    transition: all .4s ease-out;
+  margin: 10px 0 0 0;
+  font-weight: 700;
+  font-size: 1.4rem;
+  transition: all 0.4s ease-out;
 }
 
 @media screen and (max-width: 880px) {
-    .date {
-        font-size: 1.4rem;
-    }
-
-    .title {
-        font-size: 1.1rem;
-    }
+  .date {
+    font-size: 1.5rem;
   }
 
+  .title {
+    font-size: 1.1rem;
+    // Trying
+    font-size: 1.3rem;
+    font-family: Rosario;
+    font-weight: 900;
+  }
+}
+
 .status {
-    margin: 10px 0 0 0;
+  margin: 10px 0 0 0;
 }
 
 .statusAvailable {
-    margin: 10px 0 0 0;
-    color: #e03131;
-    font-size: .7rem;
-    font-weight: 400;
-    text-transform: uppercase;
-    letter-spacing: .7px;
-    background-color: #f5fff5;
-    padding: 2px 10px;
-    border-radius: 20px;
-    width: fit-content;
-    position: absolute;
-    bottom: 10px;
-    right: 10px;
+  margin: 10px 0 0 0;
+  color: #e03131;
+  font-size: 0.7rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.7px;
+  background-color: #f5fff5;
+  padding: 2px 10px;
+  border-radius: 20px;
+  width: fit-content;
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+            // Trying
+            font-family: Rosario;
+            font-style: italic;
+            font-weight: 900;
 
-    @media screen and (max-width: 600px) {
-        font-size: .5rem;
-    }
+  @media screen and (max-width: 600px) {
+    font-size: 0.5rem;
+  }
 }
-
 
 // Modal
 
 .modal {
-    color: #f5fff5;
+  color: #f5fff5;
 }
 
 .modalHeader {
-    background: #e03131;
+  background: #e03131;
 
-    .modalTitle {
-        font-weight: 400;
-    }
+  .modalTitle {
+    font-weight: 400;
+    // Trying
+    font-family: Rosario;
+    font-weight: 900;
+  }
 }
 
 .modalBody {
-    background: #e03131;
+  background: #e03131;
 
-    h2 {
-        font-weight: 700;
-    }
+  h2 {
+    font-weight: 700;
+  }
 
-    p {
-        font-weight: 400;
-        letter-spacing: .6px;
-        line-height: 1.8;
-    }
+  p {
+    font-weight: 400;
+    letter-spacing: 0.6px;
+    line-height: 1.8;
+  }
 }
 
 .modalFooter {
-    background: #e03131;
+  background: #e03131;
 }
 
 .form {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 
-    label {
-        margin-left: 4px;
-        margin-bottom: 0px;
-        font-weight: 600;
-        text-shadow: 0 8px 16px 0 rgb(0 0 0 / 1%), 0 0px 10px 0 rgba(0, 0, 0, 0.253);
-    }
-
-    input {
-        margin-bottom: 15px;
-    }
+  label {
+    margin-left: 4px;
+    margin-bottom: 0px;
+    font-weight: 600;
+    text-shadow: 0 8px 16px 0 rgb(0 0 0 / 1%), 0 0px 10px 0 rgba(0, 0, 0, 0.253);
   }
 
-  .textInput {
-    padding: 5px 10px;
-    font-size: 1rem;
-    border-radius: 10px;
-    outline: none;
-    border: none;
-    background-color: #f5fff5;
+  input {
+    margin-bottom: 15px;
+  }
+}
+
+.textInput {
+  padding: 5px 10px;
+  font-size: 1rem;
+  border-radius: 10px;
+  outline: none;
+  border: none;
+  background-color: #f5fff5;
 }
 
 .bookBtn {
-    padding: .5rem 2.2rem;
-    border: none;
-    border-radius: 20px;
-    font-weight: 600;
-    background: #f5fff5;
-    color: #e03131;
-    transition: .4s all ease-out;
-    box-shadow: 0 8px 16px 0 rgb(0 0 0 / 1%), 0 0px 10px 0 rgba(0, 0, 0, 0.123);
+  padding: 0.5rem 2.2rem;
+  border: none;
+  border-radius: 20px;
+  font-weight: 600;
+  background: #f5fff5;
+  color: #e03131;
+  transition: 0.4s all ease-out;
+  box-shadow: 0 8px 16px 0 rgb(0 0 0 / 1%), 0 0px 10px 0 rgba(0, 0, 0, 0.123);
+  // Trying
+  font-family: Rosario;
+  font-style: italic;
+  font-weight: 900;
 }
 
 .bookBtn:hover {
-    box-shadow: 0 8px 16px 0 rgba(24, 24, 24, 0.01), 0 0px 10px 0 rgba(44, 44, 44, 0.507);
-    background: #268002;
-    color: #f5fff5;
+  box-shadow: 0 8px 16px 0 rgba(24, 24, 24, 0.01),
+    0 0px 10px 0 rgba(44, 44, 44, 0.507);
+  background: #268002;
+  color: #f5fff5;
 }
 
 .closeBtn {
-    padding: .5rem 1rem;
-    border: none;
-    border-radius: 20px;
-    font-weight: 600;
-    background: #9e0e0e;
-    color: #f5fff5;
-    transition: .4s all ease-out;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 20px;
+  font-weight: 600;
+  background: #9e0e0e;
+  color: #f5fff5;
+  transition: 0.4s all ease-out;
 }
 
 .closeBtn:hover {
-    box-shadow: 0 8px 16px 0 rgba(24, 24, 24, 0.01), 0 0px 10px 0 rgba(44, 44, 44, 0.507);
-    background: #f5fff5;
-    color: #e03131;
-
+  box-shadow: 0 8px 16px 0 rgba(24, 24, 24, 0.01),
+    0 0px 10px 0 rgba(44, 44, 44, 0.507);
+  background: #f5fff5;
+  color: #e03131;
 }

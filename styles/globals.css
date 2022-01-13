@@ -8,7 +8,8 @@ body {
 }
 
 html {
-  background: linear-gradient(#e03131,#c92a2a);
+  /* background: linear-gradient(#e03131,#c92a2a); */
+  background: linear-gradient(#d62727,#c92a2a);
   min-height: 100vh;
 }
 
