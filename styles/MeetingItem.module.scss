@@ -2,26 +2,26 @@
     display: flex;
     flex-direction: column;
     gap: 2px;
-    background-color: transparent;
     border: 2px solid #f5fff5;
-    width: 400px;
+    width: 100%;
     padding: 20px;
     align-items: left;
     justify-content: center;
     border-radius: 20px;
-    color: white;
     cursor: pointer;
     position: relative;
     transition: all .2s ease-out;
+    color: white;
+    background-color: transparent;
 }
 
 .container:hover {
-    background-color: #f5fff5;
+    background: #f5fff5;
     color: #e03131;
 
     .statusAvailable {
-        background-color: #f5fff5;
-        color: #e03131;
+        background-color: #e03131;
+        color: #f5fff5;
     }
 }
 
@@ -34,7 +34,18 @@
 .title {
     margin: 10px 0 0 0;
     font-weight: 700;
+    font-size: 1.4rem
 }
+
+@media screen and (max-width: 880px) {
+    .date {
+        font-size: 1.4rem;
+    }
+
+    .title {
+        font-size: 1rem;
+    }
+  }
 
 .status {
     margin: 10px 0 0 0;
@@ -42,12 +53,12 @@
 
 .statusAvailable {
     margin: 10px 0 0 0;
-    color: #f5fff5;
+    color: #e03131;
     font-size: .7rem;
     font-weight: 400;
     text-transform: uppercase;
     letter-spacing: .7px;
-    background-color: rgb(14, 182, 14);
+    background-color: #f5fff5;
     padding: 2px 10px;
     border-radius: 20px;
     width: fit-content;

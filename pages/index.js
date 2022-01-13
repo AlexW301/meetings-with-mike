@@ -29,14 +29,21 @@ export default function Home({ data }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className={styles.sectionOne}>
+        <img src="/images/logo.png" alt="logo" height={118} width={305} />
         <h1 className={styles.header}>Book An Appointment</h1>
+        <div className={styles.bodyContent}>
+          <h2>Thank You for your interest!</h2>
+          <p>
+            If you would like to book a meeting with Mike simply choose from the
+            avaialable dates and times to request a meeting.
+          </p>
+        </div>
       </div>
       <div className={styles.sectionTwo}>
         <h2 className={styles.availableDates}>Available Dates</h2>
         <div className={styles.scrollView}>
           {sortedItems.map((item) => {
-            if (item.column_values[0].text === "Available")
-            {
+            if (item.column_values[0].text === "Available") {
               return (
                 <div key={item.id} className={styles.container}>
                   <MeetingItem

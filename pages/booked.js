@@ -1,9 +1,16 @@
+import styles from '../styles/Booked.module.scss'
+import { Button } from 'react-bootstrap';
+import Link from 'next/link';
 
 const Booked = ({first, last, email}) => {
     return (
-        <div>
-            Thank you {first} {last} for requesting a meeting
-            check your email for confirmation {email}
+        <div className={styles.container}>
+            <h1>Thank You <br></br> {first} {last}</h1>
+            <h3>We have recieved your request</h3>
+            <h4>We will respond shortly with a confirmation please make sure to check this email {email}</h4>
+            <Link href='https://www.pmlhomeloans.com' passHref>
+            <a>Visit Our Website</a>
+            </Link>
         </div>
     )
 }
