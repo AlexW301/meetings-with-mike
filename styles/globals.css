@@ -1,5 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Rosario:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Rosario:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap");
 html,
 body {
   padding: 0;
@@ -7,14 +7,14 @@ body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif !important;
+    font-family: "Source Sans Pro", sans-serif !important;
 }
 
 html {
   /* background: linear-gradient(#e03131,#c92a2a); */
-  background: linear-gradient(#d62727,#c92a2a);
+  background: linear-gradient(#d62727, #c92a2a);
   min-height: 100vh;
 }
-
 
 .scrollView::-webkit-scrollbar {
   display: none;
@@ -22,8 +22,8 @@ html {
 
 /* Hide scrollbar for IE, Edge and Firefox */
 .scrollView {
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 }
 
 a {
