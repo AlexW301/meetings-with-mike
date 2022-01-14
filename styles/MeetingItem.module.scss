@@ -35,7 +35,7 @@
   }
 
   .title {
-    font-size: 1.9rem;
+    font-size: 2rem;
   }
 
   @media screen and (max-width: 880px) {
@@ -50,7 +50,7 @@
 }
 
 .date {
-  font-size: 1.8rem;
+  font-size: 1.9rem;
   margin: 0;
   font-weight: 700;
   transition: all 0.4s ease-out;
@@ -66,10 +66,14 @@
 @media screen and (max-width: 880px) {
   .date {
     font-size: 1.5rem;
+    // Trying
+    font-size: 1.7rem;
   }
 
   .title {
     font-size: 1.1rem;
+    //Trying
+    font-size: 1.3rem;
   }
 }
 
@@ -122,17 +126,19 @@
   background: #e03131;
   padding: 16px 1.5rem;
 
-    h2 {
-      font-weight: 700;
-      font-size: 2.5rem;
-      font-family: Rosario;
+  h2 {
+    font-weight: 700;
+    font-size: 2.5rem;
+    font-family: Rosario;
     font-weight: 900;
-    }
+  }
 
   p {
     font-weight: 400;
+    // Trying
+    font-size: 1.2rem;
     letter-spacing: 0.6px;
-    line-height: 1.8;
+    line-height: 1.5;
   }
 }
 
@@ -215,10 +221,10 @@
   margin-bottom: 20px;
 
   .optionsLabel {
-      margin: 0;
-      font-size: 1.1rem;
-      font-weight: 500;
-      letter-spacing: .8px;
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 500;
+    letter-spacing: 0.8px;
   }
 
   .optionBtns {
@@ -229,7 +235,7 @@
     height: 100px;
 
     @media screen and (max-width: 880px) {
-        gap: 10px;
+      gap: 10px;
     }
   }
 
@@ -256,10 +262,10 @@
     color: #f5fff5 !important;
   }
 
-//   .optionBtn:focus {
-//     color: #f5fff5;
-//     background: #be2424;
-//   }
+  //   .optionBtn:focus {
+  //     color: #f5fff5;
+  //     background: #be2424;
+  //   }
 }
 
 .toast {
