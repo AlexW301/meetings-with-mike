@@ -7,10 +7,13 @@ import { useState } from "react";
 import { Carousel, Pagination, Modal, Button } from "react-bootstrap";
 
 export default function Home({ data }) {
-  console.log(data);
 
   const items = data.data.boards[0].items;
   const [show, setShow] = useState(false);
+
+  // console.log(items[0].column_values[6].text);
+
+  console.log(data)
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -50,6 +53,7 @@ export default function Home({ data }) {
                     date={item.column_values[1].text}
                     status={item.column_values[0].text}
                     id={item.id}
+                    options={item.column_values[6].text}
                   />
                 </div>
               );

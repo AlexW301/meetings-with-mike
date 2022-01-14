@@ -19,10 +19,10 @@ const Booked = ({first, last, email}) => {
 export default Booked;
 
 export async function getServerSideProps(context) {
-    const {first, last, email, phone, id} = context.query
+    const {first, last, email, phone, meetingOpt, id} = context.query
     
     const graphql = JSON.stringify({
-        query: `mutation {\r\n  change_multiple_column_values(board_id:2135781119, item_id:${id}, column_values: \"{\\\"text\\\": \\\"${first}\\\", \\\"text6\\\": \\\"${last}\\\", \\\"text3\\\": \\\"${email}\\\", \\\"text9\\\": \\\"${phone}\\\", \\\"status\\\": {\\\"label\\\": \\\"Pending\\\"}}\") {\r\n    id\r\n  }\r\n}`,
+        query: `mutation {\r\n  change_multiple_column_values(board_id:2135781119, item_id:${id}, column_values: \"{\\\"text\\\": \\\"${first}\\\", \\\"text6\\\": \\\"${last}\\\", \\\"text3\\\": \\\"${email}\\\", \\\"text9\\\": \\\"${phone}\\\", \\\"text7\\\": \\\"${meetingOpt}\\\", \\\"status\\\": {\\\"label\\\": \\\"Pending\\\"}}\") {\r\n    id\r\n  }\r\n}`,
         variables: {}
       })
   

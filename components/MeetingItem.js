@@ -4,7 +4,7 @@ import { Modal, Toast } from "react-bootstrap";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 
-const MeetingItem = ({ name, date, status, id }) => {
+const MeetingItem = ({ name, date, status, id, options }) => {
   const dateArr = date.split(" ");
   const fullDate = dateArr[0];
   const time = dateArr[1];
@@ -22,6 +22,7 @@ const MeetingItem = ({ name, date, status, id }) => {
   const [last, setLast] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
+  const [meetingOpt, setMeetingOpt] = useState(null)
 
   const router = useRouter();
 
@@ -46,7 +47,7 @@ const MeetingItem = ({ name, date, status, id }) => {
 
   const handleBooking = async (e) => {
     e.preventDefault();
-    if (first !== "" && last !== "" && email !== "" && phone.length >= 10) {
+    if (first !== "" && last !== "" && email !== "" && phone.length >= 10 && meetingOpt !== null) {
       setShow(false);
       router.push({
         pathname: "/booked",
@@ -55,11 +56,18 @@ const MeetingItem = ({ name, date, status, id }) => {
           last,
           email,
           phone,
+          meetingOpt,
           id,
         },
       });
     } else if (phone.length < 10) {
       setToastText("Please Enter a valid phone number");
+      setShowA(true);
+      setTimeout(() => {
+        setShowA(false);
+      }, 5000);
+    } else if (meetingOpt === null) {
+      setToastText("Please select your prefered method of contact");
       setShowA(true);
       setTimeout(() => {
         setShowA(false);
@@ -98,6 +106,20 @@ const MeetingItem = ({ name, date, status, id }) => {
   const monthName = months[monthNumber - 1];
   const day = fullDate.split("-")[2];
   //   console.log(months[monthNumber - 1])
+
+  // Check which options should be applied
+  // Note added the or because sometimes there is a space before the word and sometimes there isn't
+  const optionsArr = options ? options.split(",") : null;
+  const inPersonOpt = optionsArr
+    ? optionsArr.includes(" In Person") || optionsArr.includes("In Person")
+    : null;
+  const phoneOpt = optionsArr
+    ? optionsArr.includes(" Phone") || optionsArr.includes("Phone")
+    : null;
+  const zoomOpt = optionsArr
+    ? optionsArr.includes(" Zoom") || optionsArr.includes("Zoom")
+    : null;
+  // console.log(options ? options.split(",") : null);
 
   return (
     <>
@@ -165,6 +187,45 @@ const MeetingItem = ({ name, date, status, id }) => {
               value={phone}
               onChange={(e) => setPhone(e.target.value)}
             />
+            {options && (
+              <div className={styles.options}>
+                <p className={styles.optionsLabel}>
+                  Please select prefered contact method
+                </p>
+                <div className={styles.optionBtns}>
+                  {phoneOpt && (
+                    <input
+                      type={"button"}
+                      value={"Phone"}
+                      style={meetingOpt === 'Phone' ? {background: '#be2424', color: '#f5fff5'} : {background: '#f5fff5'}}
+                      onFocus={() => setMeetingOpt('Phone')}
+                      onClick={() => setMeetingOpt('Phone')}
+                      className={styles.optionBtn}
+                    />
+                  )}
+                  {zoomOpt && (
+                    <input
+                      type={"button"}
+                      value={"Zoom"}
+                      style={meetingOpt === 'Zoom' ? {background: '#be2424', color: '#f5fff5'} : {background: '#f5fff5'}}
+                      onFocus={() => setMeetingOpt('Zoom')}
+                      onClick={() => setMeetingOpt('Zoom')}
+                      className={styles.optionBtn}
+                    />
+                  )}
+                  {inPersonOpt && (
+                    <input
+                      type={"button"}
+                      value={"In Person"}
+                      style={meetingOpt === 'In Person' ? {background: '#be2424', color: '#f5fff5'} : {background: '#f5fff5'}}
+                      onFocus={() => setMeetingOpt('In Person')}
+                      onClick={() => setMeetingOpt('In Person')}
+                      className={styles.optionBtn}
+                    />
+                  )}
+                </div>
+              </div>
+            )}
             <Modal.Footer className={styles.modalFooter}>
               <button
                 type="button"
@@ -179,11 +240,6 @@ const MeetingItem = ({ name, date, status, id }) => {
         </Modal.Body>
         <Toast show={showA} onClose={closeShowA} className={styles.toast}>
           <Toast.Header>
-            {/* <img
-              src="holder.js/20x20?text=%20"
-              className="rounded me-2"
-              alt=""
-            /> */}
             <strong className="me-auto">Woops!</strong>
             <small>now</small>
           </Toast.Header>
