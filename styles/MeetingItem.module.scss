@@ -120,6 +120,7 @@
 
 .modalBody {
   background: #e03131;
+  padding: 16px 1.5rem;
 
   //   h2 {
   //     font-weight: 700;
@@ -224,11 +225,9 @@
     align-items: center;
     gap: 20px;
     height: 100px;
-    padding: 0 1.2rem;
 
     @media screen and (max-width: 880px) {
-        padding: 0 1.4rem;
-        gap: 13px;
+        gap: 10px;
     }
   }
 
