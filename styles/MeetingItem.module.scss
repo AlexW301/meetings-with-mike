@@ -54,6 +54,10 @@
   margin: 0;
   font-weight: 700;
   transition: all 0.4s ease-out;
+
+  @media screen and (max-width: 880px) {
+    font-size: 1.8rem;
+  }
 }
 
 .title {
@@ -61,31 +65,16 @@
   font-weight: 700;
   font-size: 1.4rem;
   transition: all 0.4s ease-out;
-}
 
-@media screen and (max-width: 880px) {
-  .date {
-    font-size: 1.5rem;
-    // Trying
-    font-size: 1.7rem;
+  @media screen and (max-width: 880px) {
+    font-size: 1.4rem;
   }
-
-  .title {
-    font-size: 1.1rem;
-    //Trying
-    font-size: 1.3rem;
-  }
-}
-
-.status {
-  margin: 10px 0 0 0;
 }
 
 .statusAvailable {
   margin: 10px 0 0 0;
   color: #e03131;
   font-size: 0.7rem;
-  font-weight: 400;
   text-transform: uppercase;
   letter-spacing: 0.7px;
   background-color: #f5fff5;
@@ -95,7 +84,6 @@
   position: absolute;
   bottom: 10px;
   right: 10px;
-  // Trying
   font-family: Rosario;
   font-style: italic;
   font-weight: 900;
@@ -115,8 +103,6 @@
   background: #e03131;
 
   .modalTitle {
-    font-weight: 400;
-    // Trying
     font-family: Rosario;
     font-weight: 900;
   }
@@ -135,7 +121,6 @@
 
   p {
     font-weight: 400;
-    // Trying
     font-size: 1.2rem;
     letter-spacing: 0.6px;
     line-height: 1.5;
@@ -176,12 +161,10 @@
   padding: 0.5rem 2.2rem;
   border: none;
   border-radius: 20px;
-  font-weight: 600;
   background: #f5fff5;
   color: #e03131;
   transition: 0.4s all ease-out;
   box-shadow: 0 8px 16px 0 rgb(0 0 0 / 1%), 0 0px 10px 0 rgba(0, 0, 0, 0.123);
-  // Trying
   font-family: Rosario;
   font-style: italic;
   font-weight: 900;
@@ -243,12 +226,10 @@
     padding: 0.5rem 2.2rem;
     border: none;
     border-radius: 20px;
-    font-weight: 600;
     background: #f5fff5;
     color: #e03131;
     transition: 0.4s all ease-out;
     box-shadow: 0 8px 16px 0 rgb(0 0 0 / 1%), 0 0px 10px 0 rgba(0, 0, 0, 0.123);
-    // Trying
     font-family: Rosario;
     font-style: italic;
     font-weight: 900;
@@ -261,11 +242,6 @@
     background: #be2424 !important;
     color: #f5fff5 !important;
   }
-
-  //   .optionBtn:focus {
-  //     color: #f5fff5;
-  //     background: #be2424;
-  //   }
 }
 
 .toast {
@@ -275,9 +251,6 @@
   right: 50%;
   transform: translateX(50%);
   color: black;
-
-  @media screen and (max-width: 880px) {
-  }
 
   .toastBody {
     background: #f5fff5;
