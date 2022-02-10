@@ -13,7 +13,7 @@ export default function Home({ data }) {
 
   // console.log(items[0].column_values[6].text);
 
-  console.log(data)
+  console.log(items)
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
